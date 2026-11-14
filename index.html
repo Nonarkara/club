@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Explore Bangkok’s mapped cannabis-related places and their open-data sources.">
+<title>CL;UB · Bangkok directory</title>
+<link rel="stylesheet" href="./vendor/maplibre-gl.css">
+<link rel="stylesheet" href="./style.css">
+<script defer src="./vendor/maplibre-gl.js"></script>
+<script defer src="./app.js"></script>
+<header><h1>CL<span>;</span>UB</h1><p>Bangkok directory</p><a href="https://co.nonarkara.org/">PL;UB map ↗</a></header>
+<main>
+  <section class="scene" aria-label="Bangkok map">
+    <div id="map"></div><p id="map-note" role="status">Loading Bangkok map…</p>
+  </section>
+  <section class="rail" aria-labelledby="find">
+    <div class="tools">
+      <h2 id="find">Find a mapped place</h2>
+      <label for="search">Name <span lang="th">ชื่อสถานที่</span></label>
+      <input id="search" type="search" autocomplete="off" placeholder="Search in Thai or English">
+      <div class="filters" role="group" aria-label="Place category">
+        <button type="button" data-kind="all" aria-pressed="true">All</button>
+        <button type="button" data-kind="clinic" aria-pressed="false">Clinics</button>
+        <button type="button" data-kind="dispensary" aria-pressed="false">Dispensaries</button>
+        <button type="button" data-kind="cafe" aria-pressed="false">Cafés</button>
+      </div>
+      <p id="count" role="status">Loading places…</p>
+    </div>
+    <ul id="places"></ul>
+    <noscript>The searchable directory needs JavaScript. <a href="./places.json">Read the source extract</a>.</noscript>
+    <footer>
+      Categories come from source tags and name matching. Listings do not confirm licensing, current operation or availability. <a href="https://med-cannabis.dtam.moph.go.th/law/2418/">Thai rules on cannabis flower ↗</a>
+      <p>Data: <a href="https://www.openstreetmap.org/copyright">© OpenStreetMap contributors</a> (24 Oct 2026) and <a href="https://docs.overturemaps.org/attribution/">Overture Maps Places</a> (2026-10-21.0). <a href="./places.json">Download the extract</a>.</p>
+    </footer>
+  </section>
+</main>
+</html>
