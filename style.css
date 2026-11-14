@@ -39,4 +39,4 @@ footer{border-top:1px solid var(--line)}footer p{margin-top:.5rem}
 
 .skip{display:inline-grid;align-items:center;min-height:44px;position:absolute;left:-9999px}.skip:focus{position:static}
 .scene.unavailable{position:static;height:auto}.scene.unavailable #map-note{position:static;margin:.5rem}
-@media(max-width:44rem){.skip{position:static;order:4;width:100%;min-height:32px}.scene{height:clamp(15rem,calc(72svh - 5rem),35rem)}}
+@media(max-width:44rem){.skip{position:static;order:2;min-height:44px}header .related{order:3}.descriptor{display:none}.scene{height:clamp(15rem,calc(72svh - 5rem),35rem)}}
