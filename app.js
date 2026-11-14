@@ -27,6 +27,14 @@ function select(id, fromMap) {
   }
 }
 
+function mapUnavailable() {
+  const scene = document.querySelector('.scene');
+  scene.classList.add('unavailable');
+  document.querySelector('#map').hidden = true;
+  mapNote.hidden = false;
+  mapNote.textContent = 'Map unavailable. You can still search the directory.';
+}
+
 function drawPins() {
   if (!pins) return;
   pins.setData({type:'FeatureCollection',features:shown.map(([id,name,lat,lng,kind])=>({
@@ -91,10 +99,12 @@ try {
     center:[100.54,13.75],zoom:11.15,dragRotate:false,pitchWithRotate:false,cooperativeGestures:true
   });
   map.addControl(new maplibregl.NavigationControl({showCompass:false}));
-  map.on('error',()=>{
-    if (!pins) mapNote.textContent = 'Map unavailable. You can still search the directory.';
-  });
+  const mapTimeout = setTimeout(mapUnavailable, 12000);
   map.once('load',()=>{
+    clearTimeout(mapTimeout);
+    document.querySelector('.scene').classList.remove('unavailable');
+    document.querySelector('#map').hidden = false;
+    map.resize();
     map.addSource('places',{type:'geojson',data:{type:'FeatureCollection',features:[]}});
     pins = map.getSource('places');
     map.addLayer({id:'places-dots',type:'circle',source:'places',paint:{
@@ -108,5 +118,5 @@ try {
     drawPins(); mapNote.hidden = true;
   });
 } catch {
-  mapNote.textContent = 'Map unavailable. You can still search the directory.';
+  mapUnavailable();
 }

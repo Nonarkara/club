@@ -4,7 +4,7 @@
 *{box-sizing:border-box}
 body{margin:0;background:var(--paper)}
 header{display:flex;align-items:center;flex-wrap:wrap;gap:.25rem .8rem;padding:.4rem 1rem;border-bottom:1px solid var(--line)}
-header a{margin-inline-start:auto;min-height:44px;display:inline-grid;align-items:center}
+header .related{margin-inline-start:auto;min-height:44px;display:inline-grid;align-items:center}
 h1,h2,p{margin:0}h1,h2,a{color:var(--ink)}h1{font-size:1.25rem;letter-spacing:.09em}h1 span{color:var(--seam)}h2{font-size:1.25rem}
 main{display:grid;grid-template-columns:minmax(0,1fr) minmax(17rem,22rem)}
 .scene{position:sticky;top:0;height:calc(100svh - 3.6rem);background:var(--wash)}
@@ -36,3 +36,7 @@ button{cursor:pointer}
 footer{border-top:1px solid var(--line)}footer p{margin-top:.5rem}
 :focus-visible{outline:2px solid var(--ink);outline-offset:-2px}
 @media(max-width:44rem){main{grid-template-columns:minmax(0,1fr)}.scene{position:relative;height:62svh}.rail{border:0;border-top:1px solid var(--line)}}
+
+.skip{display:inline-grid;align-items:center;min-height:44px;position:absolute;left:-9999px}.skip:focus{position:static}
+.scene.unavailable{position:static;height:auto}.scene.unavailable #map-note{position:static;margin:.5rem}
+@media(max-width:44rem){.skip{position:static;order:4;width:100%;min-height:32px}.scene{height:clamp(15rem,calc(72svh - 5rem),35rem)}}
