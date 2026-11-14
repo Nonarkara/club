@@ -8,14 +8,14 @@
 <link rel="stylesheet" href="./style.css">
 <script defer src="./vendor/maplibre-gl.js"></script>
 <script defer src="./app.js"></script>
-<header><h1>CL<span>;</span>UB</h1><p>Bangkok directory</p><a href="https://co.nonarkara.org/">PL;UB map ↗</a></header>
+<header><a class="skip" href="#find">Find a mapped place ↓</a><h1>CL<span>;</span>UB</h1><p>Bangkok directory</p><a class="related" href="https://co.nonarkara.org/">PL;UB map ↗</a></header>
 <main>
   <section class="scene" aria-label="Bangkok map">
     <div id="map"></div><p id="map-note" role="status">Loading Bangkok map…</p>
   </section>
   <section class="rail" aria-labelledby="find">
     <div class="tools">
-      <h2 id="find">Find a mapped place</h2>
+      <h2 id="find" tabindex="-1">Find a mapped place</h2>
       <label for="search">Name <span lang="th">ชื่อสถานที่</span></label>
       <input id="search" type="search" autocomplete="off" placeholder="Search in Thai or English">
       <div class="filters" role="group" aria-label="Place category">
